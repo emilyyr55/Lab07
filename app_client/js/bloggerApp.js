@@ -92,11 +92,14 @@ app.controller('ListController', function ListController($http, authentication) 
     };
     
     
-
     vm.isLoggedIn = function() {
         return authentication.isLoggedIn();
     }
 
+    vm.isBlogOwner = function(ownerEmail){
+        return authentication.isEmailMatch(ownerEmail);
+    }
+    
     getAllBlogs($http)
     .then(function (response){
         vm.blogs = response.data;

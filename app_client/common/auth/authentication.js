@@ -40,6 +40,7 @@ function authentication ($window, $http) {
             return false;
         }
     };
+
     var currentUser = function() {
         if(isLoggedIn()){
             var token = getToken();
@@ -50,6 +51,12 @@ function authentication ($window, $http) {
             };
         }
     };
+
+    var isEmailMatch = function(ownerEmail){
+        var user = currentUser();
+        return user ? user.email == ownerEmail : false;
+    }
+
     return {
         saveToken : saveToken,
         getToken : getToken,
@@ -57,7 +64,8 @@ function authentication ($window, $http) {
         login : login,
         logout : logout,
         isLoggedIn : isLoggedIn,
-        currentUser : currentUser
+        currentUser : currentUser,
+        isEmailMatch : isEmailMatch
     };
 };
 

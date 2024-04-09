@@ -61,6 +61,9 @@ module.exports.blogsReadOne = function(req, res) {
         blogTitle: obj.blogTitle,
         blogText: obj.blogText,
         createdOn: obj.createdOn,
+        ownerEmail: obj.ownerEmail,
+        ownerName: obj.ownerName,
+        formattedDate: new Date(obj.createdOn).toLocaleString(),
         _id: obj._id
       });
     });
