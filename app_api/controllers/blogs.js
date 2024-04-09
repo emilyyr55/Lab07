@@ -63,7 +63,7 @@ module.exports.blogsReadOne = function(req, res) {
         createdOn: obj.createdOn,
         ownerEmail: obj.ownerEmail,
         ownerName: obj.ownerName,
-        formattedDate: new Date(obj.createdOn).toLocaleString(),
+        formattedDate: new Date(obj.createdOn).toLocaleString('en-US', {timeZone: 'America/New_York', timeZoneName: 'short'}),
         _id: obj._id
       });
     });
